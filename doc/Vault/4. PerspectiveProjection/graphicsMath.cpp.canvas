@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"305c4d81920ccc7a","type":"text","text":"Створюмо функцію що ініціалізує нам об'єкт v2","x":-725,"y":-277,"width":250,"height":60,"color":"4"},
+		{"id":"215055ebd11d3c64","type":"text","text":"Використовує одне значення яке присвоєю кожній координаті","x":-413,"y":-275,"width":308,"height":58,"color":"2"},
+		{"id":"090f17dc766d088e","type":"text","text":"Використовує два значення окремо для кожної координати","x":-403,"y":-178,"width":298,"height":58,"color":"2"},
+		{"id":"787698872d40386e","type":"text","text":"\nv2 V2(f32 X, f32 Y)\n{\n\tv2 Result = {};\n\tResult.x = X;\n\tResult.y = Y;\n\treturn Result;\n}","x":-22,"y":-178,"width":193,"height":208,"color":"3"},
+		{"id":"df35c19fbf61fb97","type":"text","text":"v2 V2(f32 Arg) \n{\n\tv2 Result = {};\n\tResult.x = Arg;\n\tResult.y = Arg;\n\treturn Result;\n}","x":-9,"y":-424,"width":167,"height":207,"color":"3"},
+		{"id":"5c93041fd3f90b87","type":"text","text":"v2 operator+(v2 A, v2 B)\n{\n\tv2 Result = {};\n\tResult.x = A.x + B.x;\n\tResult.y = A.y + B.y;\n\treturn Result;\n}","x":-403,"y":-28,"width":236,"height":208,"color":"3"},
+		{"id":"d79992d76d7ef5dd","type":"text","text":"Множення на число","x":-404,"y":190,"width":250,"height":60,"color":"2"},
+		{"id":"5a5a49088fbabbb2","type":"text","text":"v2 operator\\*(f32 A, v2 B)\n{\n\tv2 Result = {};\n\tResult.x = A * B.x;\n\tResult.y = A * B.y;\n\treturn Result;\n}","x":-404,"y":250,"width":237,"height":208,"color":"3"},
+		{"id":"3aa912db53a50992","type":"text","text":"Додавання векторів","x":-403,"y":-88,"width":250,"height":60,"color":"2"},
+		{"id":"7ec335aae0b059b7","type":"text","text":"Перевантажуємо необхідні нам оператори двовимірних векторів","x":-785,"y":72,"width":310,"height":58,"color":"4"},
+		{"id":"0485e111871c3747","type":"text","text":"v2 operator/(v2 A, f32 B)\n{\n\tv2 Result = {};\n\tResult.x = A.x / B;\n\tResult.y = A.y / B;\n\treturn Result;\n}","x":-1120,"y":254,"width":237,"height":243,"color":"3"},
+		{"id":"673da0d22681a4f0","type":"text","text":"Множення значень векторів","x":-1120,"y":-104,"width":250,"height":60,"color":"2"},
+		{"id":"46f508e4bfe7bffb","type":"text","text":"v2 operator\\*(v2 A, v2 B)\n{\n\tv2 Result = {};\n\tResult.x = A.x * B.x;\n\tResult.y = A.y * B.y;\n\treturn Result;\n}","x":-1120,"y":-44,"width":231,"height":208,"color":"3"},
+		{"id":"b8520fef8f986c56","type":"text","text":"Ділення на скаляр","x":-1120,"y":194,"width":250,"height":60,"color":"2"},
+		{"id":"ffc047a7130fcbc8","type":"text","text":"Створюмо функцію що ініціалізує нам об'єкт v3","x":-785,"y":520,"width":250,"height":60,"color":"4"},
+		{"id":"f95051563a156f60","type":"text","text":"inline v3 V3(f32 X, f32 Y, f32 Z)\n{\nv3 Result;\n\nResult.x = X;\nResult.y = Y;\nResult.z = Z;\n\nreturn Result;\n}","x":-814,"y":221,"width":279,"height":276,"color":"3"},
+		{"id":"decf3d41d84e7aed","type":"text","text":"Перевантажуємо оператор додавання для трьовимірних векторів","x":-820,"y":620,"width":345,"height":58,"color":"4"},
+		{"id":"a0a94c187dfd8b75","type":"text","text":"v3 operator+(v3 A, v3 B)\n{\n v3 Result;\n \nResult.x = A.x + B.x;\nResult.y = A.y + B.y;\nResult.z = A.z + B.z;\n\nreturn Result;\n}","x":-420,"y":511,"width":236,"height":276,"color":"3"}
+	],
+	"edges":[
+		{"id":"a94bddd057db0663","fromNode":"090f17dc766d088e","fromSide":"right","toNode":"787698872d40386e","toSide":"left"},
+		{"id":"38bd2a9053030251","fromNode":"215055ebd11d3c64","fromSide":"right","toNode":"df35c19fbf61fb97","toSide":"left"},
+		{"id":"eb88c314a32c284d","fromNode":"305c4d81920ccc7a","fromSide":"right","toNode":"215055ebd11d3c64","toSide":"left"},
+		{"id":"4a27d8f132d2d52c","fromNode":"305c4d81920ccc7a","fromSide":"right","toNode":"090f17dc766d088e","toSide":"left"},
+		{"id":"9fdd63f383850a95","fromNode":"3aa912db53a50992","fromSide":"right","toNode":"5c93041fd3f90b87","toSide":"right"},
+		{"id":"ffd230074856a6e0","fromNode":"d79992d76d7ef5dd","fromSide":"right","toNode":"5a5a49088fbabbb2","toSide":"right"},
+		{"id":"0b8700e97f152617","fromNode":"673da0d22681a4f0","fromSide":"left","toNode":"46f508e4bfe7bffb","toSide":"left"},
+		{"id":"416dc825c43d8133","fromNode":"7ec335aae0b059b7","fromSide":"right","toNode":"3aa912db53a50992","toSide":"left","color":"4"},
+		{"id":"b208ef6a810168eb","fromNode":"7ec335aae0b059b7","fromSide":"right","toNode":"d79992d76d7ef5dd","toSide":"left","color":"4"},
+		{"id":"d6853db2eaec7408","fromNode":"7ec335aae0b059b7","fromSide":"left","toNode":"673da0d22681a4f0","toSide":"right","color":"4"},
+		{"id":"84df855cda13f63b","fromNode":"7ec335aae0b059b7","fromSide":"left","toNode":"b8520fef8f986c56","toSide":"right","color":"4"},
+		{"id":"031e2183958f4b3d","fromNode":"b8520fef8f986c56","fromSide":"left","toNode":"0485e111871c3747","toSide":"left"},
+		{"id":"a301195d3d2a4a42","fromNode":"ffc047a7130fcbc8","fromSide":"right","toNode":"f95051563a156f60","toSide":"right"},
+		{"id":"9d66be40d816700c","fromNode":"decf3d41d84e7aed","fromSide":"right","toNode":"a0a94c187dfd8b75","toSide":"left"}
+	]
+}

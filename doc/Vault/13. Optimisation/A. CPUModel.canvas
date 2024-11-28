@@ -1,0 +1,37 @@
+{
+	"nodes":[
+		{"id":"31a06d04cb2f522b","type":"text","text":"Блок інструкцій:\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція\n- Інструкція","x":-80,"y":-245,"width":182,"height":435,"color":"3"},
+		{"id":"a377360aa21b71da","x":792,"y":-67,"width":245,"height":80,"color":"4","type":"text","text":"Fetch parameters:\n- Вибірка параметрів"},
+		{"id":"0936d339645c9626","x":1127,"y":49,"width":203,"height":80,"color":"4","type":"text","text":"Branching:\n- Розгалуження"},
+		{"id":"36b76e771546a3a6","x":1198,"y":-67,"width":188,"height":80,"color":"4","type":"text","text":"Copy Unit:\n- Копіювання"},
+		{"id":"a5b83255323ed6c9","x":1112,"y":-172,"width":361,"height":80,"color":"4","type":"text","text":"ALU:\n- Арифметично-Логічний процессор"},
+		{"id":"82ae713712b793ad","x":1610,"y":-132,"width":248,"height":80,"color":"4","type":"text","text":"Memory writer:\n- Записувач у пам'ять"},
+		{"id":"16e02a643c671b23","x":1610,"y":-2,"width":267,"height":80,"color":"4","type":"text","text":"Register writer:\n- Записувач до регістрів"},
+		{"id":"f24a33d2ff72d2eb","type":"text","text":"Instruction fetcher:\n- Отримання інструкції","x":160,"y":-67,"width":272,"height":80,"color":"4"},
+		{"id":"faa58e82cfd9ecf1","type":"text","text":"Instruction decoder:\n- Дешифратор інструкції","x":472,"y":-67,"width":270,"height":80,"color":"4"},
+		{"id":"00a1d4f4b23b667c","x":525,"y":78,"width":217,"height":80,"color":"#1100ff","type":"text","text":"Регістри:\n- RAX, RBX, RCX ..."},
+		{"id":"7d271d990546744f","x":1627,"y":190,"width":250,"height":60,"color":"3","type":"text","text":"ПАМ'ЯТЬ (MEMORY)"},
+		{"id":"99669e1462587fcf","type":"text","text":"PC (Programm Counter)\n- регістр з вказівником на поточну інструкцію","x":-427,"y":55,"width":315,"height":135,"color":"#1100ff"},
+		{"id":"3de29ec66bdd65f0","x":-394,"y":-247,"width":250,"height":60,"color":"#1100ff","type":"text","text":"Процессор"},
+		{"id":"16bc3d3be9069e6c","x":-394,"y":-187,"width":250,"height":60,"color":"3","type":"text","text":"Пам'ять"},
+		{"id":"c63f15f61bc85676","x":-394,"y":-127,"width":250,"height":60,"color":"4","type":"text","text":"Блок обробки"},
+		{"id":"a97825054fac9d0a","x":466,"y":-217,"width":283,"height":71,"color":"1","type":"text","text":"Кожна стрілка це операція на яку ком'ютер витрачає час"}
+	],
+	"edges":[
+		{"id":"17ad93e85cac029f","fromNode":"99669e1462587fcf","fromSide":"top","toNode":"31a06d04cb2f522b","toSide":"left"},
+		{"id":"a50c0d71e19d68c2","fromNode":"31a06d04cb2f522b","fromSide":"right","toNode":"f24a33d2ff72d2eb","toSide":"left"},
+		{"id":"f001d3f35eb33749","fromNode":"f24a33d2ff72d2eb","fromSide":"right","toNode":"faa58e82cfd9ecf1","toSide":"left"},
+		{"id":"e22a651e45783e9b","fromNode":"faa58e82cfd9ecf1","fromSide":"right","toNode":"a377360aa21b71da","toSide":"left"},
+		{"id":"6ddd14027ceaba29","fromNode":"00a1d4f4b23b667c","fromSide":"right","toNode":"a377360aa21b71da","toSide":"bottom"},
+		{"id":"22efde4d04ef82ea","fromNode":"36b76e771546a3a6","fromSide":"right","toNode":"82ae713712b793ad","toSide":"left"},
+		{"id":"f0fe123a3edc18e2","fromNode":"36b76e771546a3a6","fromSide":"right","toNode":"16e02a643c671b23","toSide":"left"},
+		{"id":"33354790964ea02c","fromNode":"a5b83255323ed6c9","fromSide":"right","toNode":"82ae713712b793ad","toSide":"left"},
+		{"id":"2c9e7e7eaead2c9e","fromNode":"a5b83255323ed6c9","fromSide":"right","toNode":"16e02a643c671b23","toSide":"left"},
+		{"id":"eb1071869a8fbdd5","fromNode":"a377360aa21b71da","fromSide":"right","toNode":"36b76e771546a3a6","toSide":"left"},
+		{"id":"24bc3c1f96b13c7d","fromNode":"a377360aa21b71da","fromSide":"right","toNode":"a5b83255323ed6c9","toSide":"left"},
+		{"id":"b9778295c31c62ad","fromNode":"a377360aa21b71da","fromSide":"right","toNode":"0936d339645c9626","toSide":"left"},
+		{"id":"5fa62754bd5eadfb","fromNode":"16e02a643c671b23","fromSide":"bottom","toNode":"00a1d4f4b23b667c","toSide":"bottom"},
+		{"id":"a9d9805e12ebf37e","fromNode":"0936d339645c9626","fromSide":"bottom","toNode":"99669e1462587fcf","toSide":"bottom"},
+		{"id":"a7d04b455310757b","fromNode":"82ae713712b793ad","fromSide":"right","toNode":"7d271d990546744f","toSide":"right"}
+	]
+}

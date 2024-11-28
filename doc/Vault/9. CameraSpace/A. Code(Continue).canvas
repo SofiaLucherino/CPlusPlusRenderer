@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"bad8402d66a3e3f4","type":"text","text":"Спробуємо виявити що не так","x":-388,"y":-280,"width":250,"height":60,"color":"1"},
+		{"id":"4ce99ad169cee93a","type":"text","text":"Використаємо повідомлення у консоль налагоджувача щоб дізнатися як часто спрацьовує сегмент коду з рухом камери","x":-388,"y":-190,"width":528,"height":58,"color":"2"},
+		{"id":"68c47663e8f1ba64","type":"text","text":"На початку кожного кола головного циклу будемо виводити повідомлення \"Loop\", а при натиску клавіші \"D\" будемо виводити повідомлення \"Right\"","x":-388,"y":-103,"width":621,"height":58,"color":"4"},
+		{"id":"316240f7119f7851","type":"text","text":"\tOutputDebugStringA(\"Right\\n\")","x":300,"y":-74,"width":334,"height":58,"color":"3"},
+		{"id":"0155ffeb1e48d0d7","type":"text","text":"\tOutputDebugStringA(\"Loop\\n\")","x":300,"y":-132,"width":326,"height":58,"color":"3"},
+		{"id":"d354b8f596b4c162","type":"text","text":"Тепер при нажиманні клавіші \"D\" ми можемо побачити що при її затисненні \"Right\" пишеться не після кожного \"Loop\" а тільки з деякою періодичністью.\nЦе пов'язано з тим що кількість кадрів в секунду нашої программи перевищує кількість повідомлень що надсилає ОС віндовс нашій программі","x":-388,"y":-16,"width":631,"height":118,"color":"1"},
+		{"id":"a8d976420c053a45","type":"text","text":"Для вирішення цієї задачі спробуємо замість того щоб рухати камеру кожен раз як оотримаємо повідомлення, рухати її поки не отримаємо повідомлення про відпускання клавіші.","x":-388,"y":140,"width":520,"height":88,"color":"1"},
+		{"id":"69c7dd9d00806c12","type":"text","text":"Додамо 4 змінні для клавіш переміщення WASD","x":78,"y":343,"width":420,"height":50,"color":"4"},
+		{"id":"270be3690b9c2aa5","type":"text","text":"    b32 WDown;\n    b32 ADown;\n    b32 SDown;\n    b32 DDown;","x":538,"y":294,"width":179,"height":148,"color":"3"},
+		{"id":"9567becbad8e786c","type":"text","text":"У win32_GraphicsPractise.h","x":-389,"y":251,"width":250,"height":60,"color":"1"},
+		{"id":"ae1c421edb0412e0","type":"text","text":"У структурі глобальних змінних","x":-202,"y":338,"width":250,"height":60,"color":"6"},
+		{"id":"6db8bb14bcc2f4b5","type":"text","text":"У win32_GraphicsPractise.cpp","x":-389,"y":412,"width":262,"height":60,"color":"1"},
+		{"id":"6b30a58db2c57295","type":"text","text":"Перепишемо всі вживання локальних змінних на глобальні","x":-122,"y":539,"width":315,"height":58,"color":"4"},
+		{"id":"ee2b5bd383db1752","type":"text","text":"Сегмент зчитування клавіші","x":204,"y":447,"width":269,"height":50,"color":"2"},
+		{"id":"3cb7c567aeaf1e45","type":"text","text":"\tswitch (VkCode) \n\t{\n\t\tcase 'W':\n\t\t{\n\t\t\tGlobalState.WDown = IsDown;\n\t\t} break;\n\tcase 'A':\n\t\t{\n\t\t\tGlobalState.ADown = IsDown;\n\t\t} break;\n\t\tcase 'S':\n\t\t{\n\t\t\tGlobalState.SDown = IsDown;\n\t\t} break;\n\t\tcase 'D':\n\t\t{\n\t\t\tGlobalState.DDown = IsDown;\n\t\t} break;\n\t}","x":760,"y":206,"width":449,"height":532,"color":"3"},
+		{"id":"7f6f042e7b949dc8","type":"text","text":"Сегмент створення матриці переміщення камери","x":204,"y":640,"width":269,"height":60,"color":"2"},
+		{"id":"91d4dd9986004595","type":"text","text":"Не забудемо видалити увесь непортібний код, а саме ініціалізацію локальних змінних WDown, ADown, SDown, DDown, і виклики функцій запису в консоль налагоджувача OutputDebugStringA(...).","x":-536,"y":656,"width":556,"height":88,"color":"4"},
+		{"id":"ec91d5be27ff2ee4","type":"text","text":"\tif (GlobalState.WDown)\n\t{\n\t\tCamera->Pos += LookAt * frameTime;\n\t}\n\tif (GlobalState.ADown)\n\t{\n\t\tCamera->Pos -= Right * frameTime;\n\t}\n\tif (GlobalState.SDown)\n\t{\n\t\tCamera->Pos -= LookAt * frameTime;\n\t}\n\tif (GlobalState.DDown)\n\t{\n\t\tCamera->Pos += Right * frameTime;\n\t}","x":118,"y":738,"width":441,"height":460,"color":"3"}
+	],
+	"edges":[
+		{"id":"71591f4eba09090f","fromNode":"68c47663e8f1ba64","fromSide":"right","toNode":"316240f7119f7851","toSide":"left"},
+		{"id":"7a21345861686c86","fromNode":"68c47663e8f1ba64","fromSide":"right","toNode":"0155ffeb1e48d0d7","toSide":"left"},
+		{"id":"64359a3d6a7c74d3","fromNode":"9567becbad8e786c","fromSide":"bottom","toNode":"ae1c421edb0412e0","toSide":"left"},
+		{"id":"33720330bd162f07","fromNode":"ae1c421edb0412e0","fromSide":"right","toNode":"69c7dd9d00806c12","toSide":"left"},
+		{"id":"564f36b0ee0c01d2","fromNode":"69c7dd9d00806c12","fromSide":"right","toNode":"270be3690b9c2aa5","toSide":"left"},
+		{"id":"b24825c043428506","fromNode":"6db8bb14bcc2f4b5","fromSide":"bottom","toNode":"6b30a58db2c57295","toSide":"left"},
+		{"id":"37dda2e5bc141c71","fromNode":"6db8bb14bcc2f4b5","fromSide":"bottom","toNode":"91d4dd9986004595","toSide":"top"},
+		{"id":"8ec74918b2a631fe","fromNode":"ee2b5bd383db1752","fromSide":"right","toNode":"3cb7c567aeaf1e45","toSide":"left"},
+		{"id":"961c97f9f5988418","fromNode":"6b30a58db2c57295","fromSide":"right","toNode":"ee2b5bd383db1752","toSide":"bottom"},
+		{"id":"4a8f835e05d913cf","fromNode":"6b30a58db2c57295","fromSide":"right","toNode":"7f6f042e7b949dc8","toSide":"top"},
+		{"id":"83268dca07bdf32f","fromNode":"7f6f042e7b949dc8","fromSide":"bottom","toNode":"ec91d5be27ff2ee4","toSide":"top"}
+	]
+}

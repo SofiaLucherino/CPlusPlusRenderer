@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"adccddaed170fb2b","type":"text","text":"\\#if !defined(WIN32_GRAPHICSPRACTISE_H)\n","x":-320,"y":-335,"width":385,"height":50,"color":"3"},
+		{"id":"45a196c5d090829a","type":"text","text":"Додаємо потрібні стандартні бібліотеки","x":-320,"y":-231,"width":250,"height":60,"color":"4"},
+		{"id":"d78143ec198d090f","type":"text","text":"Створюємо більш зручні назви для стандартних типів змінних","x":-320,"y":12,"width":324,"height":60,"color":"4"},
+		{"id":"f6a1402e4841700d","type":"text","text":"typedef int8_t i8;\ntypedef int16_t i16;\ntypedef int32_t i32;\ntypedef int64_t i64;\n\ntypedef uint8_t u8;\ntypedef uint16_t u16;\ntypedef uint32_t u32;\ntypedef uint64_t u64;\n\ntypedef float f32;\ntypedef double f64;","x":28,"y":-120,"width":213,"height":324,"color":"3"},
+		{"id":"7989124b3f18bd1c","type":"text","text":"typedef size_t mm;\ntypedef uintptr_t umm;","x":28,"y":240,"width":250,"height":60,"color":"3"},
+		{"id":"af0d8395f12aa028","type":"text","text":"typedef int32_t b32;\n","x":28,"y":300,"width":250,"height":50,"color":"3"},
+		{"id":"25530436803e0a2e","type":"text","text":"\\#define global static\n\\#define local_global static\n","x":28,"y":400,"width":250,"height":60,"color":"3"},
+		{"id":"2fa75ee0b08aac43","type":"text","text":"\\#define snprintf _snprintf_s\n\\#define Assert(Expression) if (!(Expression)) {__debugbreak();}\n\\#define InvalidCodePath Assert(!\"Invalid Code Path\")\n\\#define ArrayCount(Array) (sizeof(Array) / sizeof((Array)[0]))\n","x":28,"y":500,"width":492,"height":118,"color":"3"},
+		{"id":"6fb1a86acb0e950b","type":"text","text":"\\#define KiloBytes(Val) ((Val)*1024LL)\n\\#define MegaBytes(Val) (KiloBytes(Val)*1024LL)\n\\#define GigaBytes(Val) (MegaBytes(Val)*1024LL)\n\\#define TeraBytes(Val) (GigaBytes(Val)*1024LL)","x":28,"y":618,"width":394,"height":118,"color":"3"},
+		{"id":"e15d32375329a5be","type":"text","text":"struct global_state\n{\n    b32 IsRunning;\n    HWND WindowHandle;\n};\n","x":225,"y":760,"width":230,"height":148,"color":"3"},
+		{"id":"89f047e19f2d6f41","type":"text","text":"Скорочення для знаходження значення розміру в Байтах","x":-320,"y":647,"width":291,"height":60,"color":"4"},
+		{"id":"f05a1c6662491ec5","type":"text","text":"Корисні скорочення часто вживаних функцій або виразів","x":-320,"y":529,"width":291,"height":60,"color":"4"},
+		{"id":"e402048f60e220a7","type":"text","text":"\\#define WIN32_GRAPHICSPRACTISE_H\n\\#endif\n","x":-320,"y":980,"width":337,"height":58,"color":"3"},
+		{"id":"d1c8e789d7da9225","type":"text","text":"Структура з важливими глобальними змінними (по мірі необхідності будемо додавати сюди глобальні змінні що ми хочемо використовувати чи відстежувати)","x":-320,"y":790,"width":475,"height":88,"color":"1"},
+		{"id":"e9c6ed25f5057cfb","type":"text","text":"Деякі псевдоніми для ключового слова static","x":-320,"y":400,"width":250,"height":60,"color":"4"},
+		{"id":"cbe909fe62fc3763","type":"text","text":"Створюємо перевірку на існування вмісту цього файлу післу препроцессінгу","x":-920,"y":271,"width":366,"height":58,"color":"4"},
+		{"id":"cc828180b4939533","type":"text","text":"\\#include <stdint.h>\n\\#include <stddef.h>\n\\#include <stdio.h>\n\\#include <float.h>","x":28,"y":-260,"width":213,"height":118,"color":"3"}
+	],
+	"edges":[
+		{"id":"abd1157e3d892e31","fromNode":"cbe909fe62fc3763","fromSide":"right","toNode":"adccddaed170fb2b","toSide":"left"},
+		{"id":"ed6413b43b21e551","fromNode":"cbe909fe62fc3763","fromSide":"right","toNode":"e402048f60e220a7","toSide":"left"},
+		{"id":"5fc72148f8ef5f20","fromNode":"45a196c5d090829a","fromSide":"right","toNode":"cc828180b4939533","toSide":"left"},
+		{"id":"b9520467a146b82d","fromNode":"d78143ec198d090f","fromSide":"right","toNode":"f6a1402e4841700d","toSide":"left"},
+		{"id":"b93e2b6b0d2e9a74","fromNode":"d78143ec198d090f","fromSide":"bottom","toNode":"7989124b3f18bd1c","toSide":"left"},
+		{"id":"491fda0cdcc79148","fromNode":"d78143ec198d090f","fromSide":"bottom","toNode":"af0d8395f12aa028","toSide":"left"},
+		{"id":"88643dec75ce66e3","fromNode":"f05a1c6662491ec5","fromSide":"right","toNode":"2fa75ee0b08aac43","toSide":"left"},
+		{"id":"f755d08d528c74e6","fromNode":"89f047e19f2d6f41","fromSide":"right","toNode":"6fb1a86acb0e950b","toSide":"left"},
+		{"id":"a700c2d2d4f89c50","fromNode":"d1c8e789d7da9225","fromSide":"right","toNode":"e15d32375329a5be","toSide":"left"},
+		{"id":"91d866018c3dab81","fromNode":"e9c6ed25f5057cfb","fromSide":"right","toNode":"25530436803e0a2e","toSide":"left"}
+	]
+}

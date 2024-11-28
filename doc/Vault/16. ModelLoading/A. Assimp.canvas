@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"452a5a69f3a9c7fc","type":"text","text":"Розглянемо з чого скаладається класс aiScene:\n- mRootNode - ієрархічне дерево мешей, що ми можемо ігнорувати\n- mMeshes* - массив мешів (набір полігонів що мають спільну текстуру і властивості)\n\nРозглянемо з чого скаладається класс aiMash:\n- mVertices* - массив вершин\n- mTextureCoords* - uv координати\n- mFaces* - массив лиць (де знаходяться індекси)\n\nТаким чином модель це просто набір мешів і текстур що разом створюють один об'єкт\n\nРозглянемо з чого скаладається класс aiFaces:\n- mNumIndeces - вказує на ти скільки в одному полігоні вершин (тобто може малювати не тільки трикутники, але і квадрати і інші фігури)\n- mIndeces* - массив індексів","x":-444,"y":320,"width":613,"height":501,"color":"#ee00ff"},
+		{"id":"698d8744035ace9f","type":"text","text":"Ми б могли і самі зробити підпрограмму що зчитувала наш формат тривімирного об'єкту, але це б заняло досить багато часу\n\nВикористаємо для цих цілей вже існуючу бібліотеку завантаження тривімирних сцен assimp (ASSetts IMPorter), що може підтримувати велику кількість існуючих форматів файлів","x":-544,"y":-205,"width":549,"height":166,"color":"#ff0095"},
+		{"id":"009e291d39d047d6","type":"text","text":"Для тривімирних об'єктів існує дуже багато різних форматів збереження у файлах\n\n- Тривимірні ігри зазвичай мають власні формати що оптимізовані під роботу з їхнім двигуном\n- Багато загальнодоступних форматів зберігають не просто один об'єкт а цілу сцену з них\n- Також існують формати обміну (Collada, GLTF), які менш оптимізовані для зчитування з них данних конкретними программами, проте можуть бути перетворені у файли інших форматів","x":-579,"y":-540,"width":620,"height":290,"color":"#ff0066"},
+		{"id":"3baac0b7351bd762","type":"text","text":"Створюємо об'єкт класу Сцена, завантажуючи його з файлу:\n- Assimp::Importer Importer;\n- const aiScene* Scene = Importer.ReadFile(ModelPath, aiProcess_Triangulate | aiProcess_OptimizeMeshes);\n\nПеревіряємо коректність завантаження моделі:\n- if (!Scene || Scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !Scene->mRootNode)\n- {\n\t- const char* Error = Importer.GetErrorString();\n\t- InvalidCodePath;\n- }","x":41,"y":-69,"width":852,"height":330,"color":"#ff00c8"},
+		{"id":"5e07f215177efe2d","type":"text","text":"Потрібні файли заголовків:\n- include \"assimp/Importer.hpp\"\n- include \"assimp/scene.h\"\n- include \"assimp/postprocess.h\"","x":232,"y":-277,"width":471,"height":145,"color":"#ff0095"},
+		{"id":"b70445f5a4539ca9","type":"text","text":"У assimp для кожнного мешу існує свій массив вершин і лиць\n\nМи ж об'єднаємо ці массиви у один для більш ефективного переходження пам'яті\n\nУ такому випадку кожен меш буде зберігати зсув у загальному массиві замість показчика на свій окремий массив","x":278,"y":574,"width":378,"height":247,"color":"#c800ff"}
+	],
+	"edges":[
+		{"id":"e978c20729e12817","fromNode":"452a5a69f3a9c7fc","fromSide":"right","toNode":"b70445f5a4539ca9","toSide":"top"},
+		{"id":"009ad1c3fc77cbee","fromNode":"3baac0b7351bd762","fromSide":"bottom","toNode":"452a5a69f3a9c7fc","toSide":"top"},
+		{"id":"9d03eeaae9b37860","fromNode":"698d8744035ace9f","fromSide":"right","toNode":"5e07f215177efe2d","toSide":"left"},
+		{"id":"51c4b98f2f2dd09c","fromNode":"5e07f215177efe2d","fromSide":"bottom","toNode":"3baac0b7351bd762","toSide":"top"},
+		{"id":"48ae243f236acb4e","fromNode":"009e291d39d047d6","fromSide":"bottom","toNode":"698d8744035ace9f","toSide":"top"}
+	]
+}

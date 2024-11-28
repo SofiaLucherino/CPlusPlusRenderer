@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"86cd7776293e1fd8","type":"text","text":"Потрібні знання:\n- Математика:\n\t- Геометрія (Трикутники і прямокутники)\n\t- Лінійна Алгебра (аектори, матриці, скалярний/векторний добуток)\n\t- Проста Алгебра множин ((А ∪ В), α є \\[0, 1])\n- Програмування:\n\t- С/С++ (Вказівники і пам'ять)\n\t- Налагоджувач (Дебаггер)\n\t- Бітові операції\n- Командний рядок (трішки)","x":-627,"y":-280,"width":627,"height":329,"color":"1"},
+		{"id":"5d95a66cc70e7245","type":"text","text":"Вимоги:\n- Visual Studio.\n- Windows.\n- Для пізніших лекцій, DX12 SDK та графічна карта, що підтримуює DX12.","x":-627,"y":60,"width":377,"height":176,"color":"2"},
+		{"id":"3e55855254fe2594","type":"text","text":"Альтернативні программи\nemacs - IDE\nRemedyBG - debugger","x":-557,"y":251,"width":307,"height":100,"color":"6"},
+		{"id":"c653ac279ad1a430","type":"text","text":"Бібліотека ОС Windows","x":820,"y":53,"width":250,"height":60,"color":"4"},
+		{"id":"07a040c223b0aef9","type":"text","text":"Entrypoint функція","x":820,"y":133,"width":250,"height":60,"color":"4"},
+		{"id":"8914636c4a4a1784","type":"text","text":"#include <windows.h>","x":1120,"y":58,"width":250,"height":50,"color":"3"},
+		{"id":"fe8b3b04610cfd8a","type":"text","text":"int WinMain(\n\tHINSTANCE hInstance,\n\tHINSTANCE hPrevInstance,\n\tLPSTR     lpCmdLine,\n\tint       nShowCmd)\n{\n\treturn 0;\n}","x":1120,"y":132,"width":254,"height":238,"color":"3"},
+		{"id":"22b8d7c936bbab5c","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/1. Opening/PNG/EntrypointProperties.png","x":404,"y":370,"width":680,"height":477,"color":"4"},
+		{"id":"a88e0e0637f923aa","type":"text","text":"##### Налаштування Visual Studio","x":120,"y":15,"width":370,"height":50,"color":"4"},
+		{"id":"547842d8a39aedac","type":"text","text":"1. Створюємо .cpp файл в якому буде entrypoint проекту\n2. Так як ми будемо програмувати на Windows ОС, то для використання вікна прописуємо entrypoint функцією WinMain()\n3. Додаємо бібліотеку ОС Windows ==> \"#include <windows.h>\"\n","x":120,"y":100,"width":568,"height":126,"color":"4"},
+		{"id":"4ec870f5a6df1b27","type":"text","text":"4. Змінюємо параметри entrypoint'а проекту на той що на картинці","x":120,"y":260,"width":348,"height":80,"color":"4"},
+		{"id":"9c8975d59a9e3677","type":"text","text":"## Вступ\nЯкщо ви хочете самостійно опрацьовувати оригінальний матеріал курсу лекцій, то переходьте за посиланням у блакитному прямокутнику. \n\nТут зібраний покроковий конспект усього що розглядається у лекціях 1-16 до використання графічного адаптеру в коді","x":-627,"y":400,"width":441,"height":254,"color":"#ff0000"},
+		{"id":"9911a3d9d3b78cc2","type":"text","text":"Source\nhttps://www.youtube.com/watch?v=5vt6uss2fUU&list=PLBS08eIaKMjniUWf2mKM3kj5Z60W1H5ST","x":-627,"y":784,"width":847,"height":63,"color":"5"},
+		{"id":"0b0f53911ce43ed0","type":"text","text":"Як слідкувати\n- Теорія і презентація (ідеї)\n- Практика, кодінг (реалізація ідей)\n- Математика (не обов'язково зрозуміти усе, але загальну концепцію)\n- [Код на гітхабі](https://github.com/UkrKnowledge/GraphicsTutorial)","x":180,"y":-280,"width":387,"height":266,"color":"3"}
+	],
+	"edges":[
+		{"id":"bdd0103f18ca6719","fromNode":"a88e0e0637f923aa","fromSide":"left","toNode":"547842d8a39aedac","toSide":"left"},
+		{"id":"bb57356a6057dfaa","fromNode":"547842d8a39aedac","fromSide":"left","toNode":"4ec870f5a6df1b27","toSide":"left"},
+		{"id":"08c2779506e17dca","fromNode":"4ec870f5a6df1b27","fromSide":"right","toNode":"22b8d7c936bbab5c","toSide":"top"},
+		{"id":"263e35e942a11e89","fromNode":"547842d8a39aedac","fromSide":"right","toNode":"c653ac279ad1a430","toSide":"left"},
+		{"id":"f62bb31b6ebd4afc","fromNode":"547842d8a39aedac","fromSide":"right","toNode":"07a040c223b0aef9","toSide":"left"},
+		{"id":"61d78adf09820140","fromNode":"c653ac279ad1a430","fromSide":"right","toNode":"8914636c4a4a1784","toSide":"left"},
+		{"id":"8e1aaabd5338d87b","fromNode":"07a040c223b0aef9","fromSide":"right","toNode":"fe8b3b04610cfd8a","toSide":"left"},
+		{"id":"cacafc680c1d3a80","fromNode":"07a040c223b0aef9","fromSide":"bottom","toNode":"22b8d7c936bbab5c","toSide":"top"},
+		{"id":"23e72571e6f6f992","fromNode":"5d95a66cc70e7245","fromSide":"right","toNode":"3e55855254fe2594","toSide":"right"},
+		{"id":"0bd4f3555e19a2c7","fromNode":"9c8975d59a9e3677","fromSide":"bottom","toNode":"9911a3d9d3b78cc2","toSide":"top"},
+		{"id":"4f48cf5561f0c0dd","fromNode":"9c8975d59a9e3677","fromSide":"left","toNode":"5d95a66cc70e7245","toSide":"left"},
+		{"id":"0c550f15dffa0afb","fromNode":"9c8975d59a9e3677","fromSide":"left","toNode":"86cd7776293e1fd8","toSide":"left"},
+		{"id":"01a57ac10205e172","fromNode":"9c8975d59a9e3677","fromSide":"right","toNode":"0b0f53911ce43ed0","toSide":"left"}
+	]
+}

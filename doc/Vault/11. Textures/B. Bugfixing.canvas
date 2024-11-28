@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"5cdd70e59ec3857c","type":"text","text":"Згадаємо з уроку 7B що при інтерполяції атрибутів у трикутнику що не є паралельним площині екрану ми повинні враховувати атрибут глибини","x":-328,"y":-221,"width":599,"height":58,"color":"#e100ff"},
+		{"id":"9dbbe268479c4415","type":"text","text":"Маємо такі рівняння:\n- I = I0 + s * (I1 -I0);\n- s = (p0z * t) / (p1z - t * (p1z -p0z))\n\n, де:\n- s - інтерполяційна змінна в просторі екрану\n- t - інтерполяційна змінна в світовому просторі\n\nПідставимо s з другої формули в першу і отримаємо:\n- I = I0 * (p0z * t * (I1 - I0) ) / (p1z - t * (p1z -p0z) )\n- = (I0 * (p1z - t * (p1z -p0z) ) ) / ((p1z - t * (p1z -p0z) ) ) + (p0z * t * (I1 - I0) ) / (p1z - t * (p1z -p0z) )\n- = I0\\*p1z - I0\\*t\\*p1z + I0\\*t\\*p0z + I1\\*t\\*p0z - I0\\*t\\*p0z / (p1z - t * (p1z -p0z) )\n- = I0\\*p1z - I0\\*t\\*p1z + I1\\*t\\*p0z / (p1z - t * (p1z -p0z) )\n\nДілимо чесельник  дільник на \"p1z * p0z\":\n- = (I0\\*p1z/p1z\\*p0z) - (I0\\*t\\*p1z/p1z\\*p0z) + (I1\\*t\\*p0z/p1z\\*p0z) / ( (p1z/p1z\\*p0z) - t * ( (p1z/p1z\\*p0z) - (p0z/p1z\\*p0z) ) )\n- = (I0/p0z) - (I0\\*t/p0z) + (I1\\*t/p1z) / ( (1/p0z) - t * ( (1/p0z) - (1/p1z) ) )\n\nБачимо що в чисельнику ми інтерполюємо атрибут І поділений на глібину, а в хнаменнику ми інтерполюємо глибину:\n- Чисельник: ( (I0/p0z) + t * ((I1/p1z) - (I0/p0z)))\n- Знаменник: ( (1/p0z) + t * ((1/p1z) - (1/p0z)))\n\nПроте як ми пам'ятаємо ми нормалізували нашу Z-координату в векторах, так що вона має значення від 0 до 1, проте воно залишилося у четвертомі елементі - W-координаті, тому маєо що формула для атрибуту І в поточній точці має вигляд:\n- I = ( (I0/p0w) + t * ((I1/p1w) - (I0/p0w)) ) \\* pw ;","x":-442,"y":-120,"width":828,"height":811,"color":"#ff00d0"},
+		{"id":"481e9463898e41b4","type":"text","text":"Рахуємо значення числа \"один ділене на глибину в цій точці\"","x":657,"y":-39,"width":291,"height":58,"color":"4"},
+		{"id":"6ebaeeab8550b228","type":"text","text":"\tf32 OneOverW = T0 * (1.0f / TransformedPoint0.w) + T1 * (1.0f / TransformedPoint1.w) + T2 * (1.0f / TransformedPoint2.w);\n","x":1020,"y":-54,"width":597,"height":88,"color":"3"},
+		{"id":"118de9974c713c92","type":"text","text":"\tv2 UV = T0 * (ModelUV0 / TransformedPoint0.w) + T1 * (ModelUV1 / TransformedPoint1.w) + T2 * (ModelUV2 / TransformedPoint2.w);\n\tUV /= OneOverW;\n","x":1020,"y":54,"width":613,"height":118,"color":"3"},
+		{"id":"d8c7c7f378644acb","type":"text","text":"Рахуємо UV-координату в цій точці","x":657,"y":83,"width":250,"height":60,"color":"4"},
+		{"id":"9edf94ec2ff3fc33","type":"text","text":"Після перевірки глибини поточного пікселю","x":480,"y":-112,"width":248,"height":58,"color":"6"},
+		{"id":"adad9f224cb9a21b","type":"text","text":"У функції DrawTriangle","x":340,"y":-221,"width":250,"height":60,"color":"6"},
+		{"id":"a6c299dac6b0f553","type":"text","text":"У win32_GraphicsPractise.cpp","x":180,"y":-341,"width":274,"height":60,"color":"1"}
+	],
+	"edges":[
+		{"id":"cd698c89013883fc","fromNode":"a6c299dac6b0f553","fromSide":"bottom","toNode":"adad9f224cb9a21b","toSide":"left"},
+		{"id":"88831af1bdd3f18a","fromNode":"d8c7c7f378644acb","fromSide":"right","toNode":"118de9974c713c92","toSide":"left"},
+		{"id":"5994eb67201c7594","fromNode":"481e9463898e41b4","fromSide":"left","toNode":"d8c7c7f378644acb","toSide":"left"},
+		{"id":"b7faf8159a7972e4","fromNode":"481e9463898e41b4","fromSide":"right","toNode":"6ebaeeab8550b228","toSide":"left"},
+		{"id":"a46588744380567f","fromNode":"9edf94ec2ff3fc33","fromSide":"bottom","toNode":"481e9463898e41b4","toSide":"left"},
+		{"id":"a78256bac6ab0d1e","fromNode":"adad9f224cb9a21b","fromSide":"bottom","toNode":"9edf94ec2ff3fc33","toSide":"left"}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"eed45822c9a7970e","type":"text","text":"Для максимальних значень використаємо функцію round() щоб випадково не відрізати піксель який ми повинні були б зафарбувати","x":-748,"y":-38,"width":395,"height":88,"color":"4"},
+		{"id":"79e6495ab51bc4d0","type":"text","text":"\ti32 MaxX = max(max((i32)round(PointA.x), (i32)round(PointB.x)), (i32)round(PointC.x));\n\ti32 MaxY = max(max((i32)round(PointA.y), (i32)round(PointB.y)), (i32)round(PointC.y));","x":-326,"y":-38,"width":802,"height":88,"color":"3"},
+		{"id":"429fe305e6f76cf8","type":"text","text":"\ti32 MinX = min(min((i32)PointA.x, (i32)PointB.x), (i32)PointC.x);\n\ti32 MinY = min(min((i32)PointA.y, (i32)PointB.y), (i32)PointC.y);","x":-326,"y":-140,"width":630,"height":88,"color":"3"},
+		{"id":"cbcbc591b474517c","type":"text","text":"\tfor (int Y = { MinY}; Y <= MaxY; Y++)\n\t{\n\t\tfor (int X = { MinX }; X <= MaxX; X++)\n\t\t{","x":-326,"y":54,"width":474,"height":148,"color":"3"},
+		{"id":"ab793be7ea911f14","type":"text","text":"Оптимізуємо функцію малювання трикутників так щою проходити лише по пікселям у прямокутнику в який вписаний трикутник","x":-1140,"y":-380,"width":405,"height":88,"color":"1"},
+		{"id":"d9ed35656d930976","type":"text","text":"Знайдемо мінімальні значення координат вершин трикутників","x":-748,"y":-125,"width":295,"height":58,"color":"4"},
+		{"id":"9cf4adb07ce30845","type":"text","text":"Змінимо цикл використовуючі нові значення координат","x":-748,"y":99,"width":291,"height":58,"color":"4"},
+		{"id":"f8706d62184eb8ee","type":"text","text":"У функції DrawTriangle","x":-748,"y":-220,"width":250,"height":60,"color":"6"},
+		{"id":"08718dc4681f76b7","type":"text","text":"Якщо наш трикутник буде мати одну з вершин поза областю камери, то программа буде його некорректно відмальовувати","x":-1270,"y":240,"width":396,"height":88,"color":"1"},
+		{"id":"685d1b77ff32a5ef","type":"text","text":"Створимо перевірки на приналежність мін/макс значень до області екрану","x":-748,"y":255,"width":352,"height":58,"color":"4"},
+		{"id":"de2c33fa3f68c629","type":"text","text":"\tMinX = max(0, MinX);\n\tMinX = min(MinX, GlobalState.FrameBufferWidth - 1);\n\n\tMinY = max(0, MinY);\n\tMinY = min(MinY, GlobalState.FrameBufferHeight - 1);\n\n\tMaxX = max(0, MaxX);\n\tMaxX = min(MaxX, GlobalState.FrameBufferWidth - 1);\n\n\tMaxY = max(0, MaxY);\n\tMaxY = min(MaxY, GlobalState.FrameBufferHeight - 1);","x":-326,"y":220,"width":523,"height":340,"color":"3"}
+	],
+	"edges":[
+		{"id":"b4d5147d16bf7224","fromNode":"9cf4adb07ce30845","fromSide":"right","toNode":"cbcbc591b474517c","toSide":"left"},
+		{"id":"7228c983addab357","fromNode":"eed45822c9a7970e","fromSide":"right","toNode":"79e6495ab51bc4d0","toSide":"left"},
+		{"id":"a9d762f669f6c824","fromNode":"d9ed35656d930976","fromSide":"right","toNode":"429fe305e6f76cf8","toSide":"left"},
+		{"id":"97a661fdd364c198","fromNode":"ab793be7ea911f14","fromSide":"bottom","toNode":"f8706d62184eb8ee","toSide":"left"},
+		{"id":"95dec28238c80377","fromNode":"f8706d62184eb8ee","fromSide":"left","toNode":"d9ed35656d930976","toSide":"left"},
+		{"id":"fa7d3417be1573f8","fromNode":"d9ed35656d930976","fromSide":"left","toNode":"eed45822c9a7970e","toSide":"left"},
+		{"id":"4a202aa71da782f8","fromNode":"eed45822c9a7970e","fromSide":"left","toNode":"9cf4adb07ce30845","toSide":"left"},
+		{"id":"ea40ea87134adbdc","fromNode":"d9ed35656d930976","fromSide":"left","toNode":"685d1b77ff32a5ef","toSide":"left"},
+		{"id":"2320ec4d7a6389f4","fromNode":"eed45822c9a7970e","fromSide":"left","toNode":"685d1b77ff32a5ef","toSide":"left"},
+		{"id":"74d1ee71466393ef","fromNode":"08718dc4681f76b7","fromSide":"right","toNode":"685d1b77ff32a5ef","toSide":"left"},
+		{"id":"17870442b3ab21c2","fromNode":"685d1b77ff32a5ef","fromSide":"bottom","toNode":"de2c33fa3f68c629","toSide":"left"}
+	]
+}

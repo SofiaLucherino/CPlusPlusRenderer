@@ -1,0 +1,37 @@
+{
+	"nodes":[
+		{"id":"116019ede34586a8","type":"text","text":"При творенні текстури","x":239,"y":-534,"width":250,"height":60,"color":"6"},
+		{"id":"c537b8549403bad3","type":"text","text":"Створимо змінні цо будуть зарактеризувати кількість квадратів на текстурі і скільки сторона квадрату займає пікселів. Порахуємо на основі цього ширину і висоту текстури","x":530,"y":-548,"width":523,"height":88,"color":"4"},
+		{"id":"29cf09b6d3cad768","type":"text","text":"\tu32 Blocksize = 4;\n\tu32 numBlocks = 32;\n\n\tCheckerBoardTexture.Width = Blocksize * numBlocks;\n\tCheckerBoardTexture.Height = Blocksize * numBlocks;\n","x":1100,"y":-593,"width":515,"height":178,"color":"3"},
+		{"id":"8c4860f88b904e8e","type":"text","text":"\tfor (int Y = { 0 }; Y < numBlocks; Y++)\n\t{\n\t\tfor (int X = { 0 }; X < numBlocks; X++)\n\t\t{\n","x":1100,"y":-415,"width":482,"height":148,"color":"3"},
+		{"id":"29f60e45288aebe3","type":"text","text":"Змінимо у циклі умову, тепер будемо ітерувати за блоками а не пікселями","x":712,"y":-370,"width":341,"height":58,"color":"4"},
+		{"id":"31364581a6733c7c","type":"text","text":"Шукаємо чи буде цей блок білого чи чорного кольору","x":1100,"y":-258,"width":265,"height":58,"color":"4"},
+		{"id":"35b46f7ce275a6e9","type":"text","text":"Творимо цикл для окраски текселів текстури у колір блоку","x":1100,"y":-155,"width":294,"height":58,"color":"4"},
+		{"id":"37bd3e9d6d85f704","type":"text","text":"\t\t}\n\t}","x":1100,"y":180,"width":170,"height":88,"color":"3"},
+		{"id":"4d3b57e04e697e83","type":"text","text":"Знаходимо поточний тексель у циклі і присвоюємо колір","x":1448,"y":4,"width":281,"height":58,"color":"4"},
+		{"id":"691e42bd213df7b9","type":"text","text":"\tu32 TexelID = (Y * Blocksize + BlockY) * CheckerBoardTexture.Width + (X * Blocksize + BlockX);\n\tCheckerBoardTexture.Texels[TexelID] = (((u32)0xFF) << 24) + (((u32)ColorChannel) << 16) + (((u32)ColorChannel) << 8) + ((u32)ColorChannel);\n","x":1768,"y":-26,"width":868,"height":118,"color":"3"},
+		{"id":"88d87a3bd9a92c67","type":"text","text":"\t\t}\n\t}","x":1445,"y":92,"width":170,"height":88,"color":"3"},
+		{"id":"c1aa2f0848414a5c","type":"text","text":"\tu32 ColorChannel = 255 * ((X + (Y % 2)) % 2);\n","x":1448,"y":-258,"width":466,"height":58,"color":"3"},
+		{"id":"111ec79d20562139","type":"text","text":"\tfor (u32 BlockY = 0; BlockY < Blocksize; BlockY++)\n\t{\n\t\tfor (u32 BlockX = 0; BlockX < Blocksize; BlockX++)\n\t\t{\n","x":1448,"y":-200,"width":572,"height":148,"color":"3"},
+		{"id":"db4f88d3043a34a8","type":"text","text":"У main функції","x":239,"y":-623,"width":250,"height":60,"color":"6"},
+		{"id":"cf06935622cd0868","type":"text","text":"У win32_GraphicsPractise.cpp","x":239,"y":-720,"width":260,"height":60,"color":"1"},
+		{"id":"d9cf5ae359f6e8a4","type":"text","text":"Після запуску нашої програми ми можемо побачити що зображення нехай і виглядає як стабільна текстура на кубі, проте вона дуже розмита і не чітка","x":207,"y":-317,"width":453,"height":88,"color":"#fb00ff"},
+		{"id":"8a8d03f74f2a31e9","type":"text","text":"Щоб виправити це ми можемо збільшити розмір нашої текстурки у чотири рази, і зробити поперемінні чорні й білі квадрати розміром 4 на 4 пікселі замість попереднього одного.\n\nТоді наш метод буде відмальовувати багато чітких ділянок де колір є суто чорним і суто білим і ми отримаємо текстуру що і планували","x":207,"y":-199,"width":565,"height":168,"color":"#ff00a2"}
+	],
+	"edges":[
+		{"id":"91bc06b980208a2f","fromNode":"cf06935622cd0868","fromSide":"left","toNode":"db4f88d3043a34a8","toSide":"left"},
+		{"id":"a5db8b151346d047","fromNode":"c537b8549403bad3","fromSide":"right","toNode":"29cf09b6d3cad768","toSide":"left"},
+		{"id":"eb05179427e373ef","fromNode":"29f60e45288aebe3","fromSide":"right","toNode":"8c4860f88b904e8e","toSide":"left"},
+		{"id":"85253278ee785e70","fromNode":"116019ede34586a8","fromSide":"right","toNode":"c537b8549403bad3","toSide":"left"},
+		{"id":"845128e65dbd5427","fromNode":"c537b8549403bad3","fromSide":"left","toNode":"29f60e45288aebe3","toSide":"left"},
+		{"id":"4fa4ab8ca1c06105","fromNode":"8c4860f88b904e8e","fromSide":"left","toNode":"31364581a6733c7c","toSide":"left"},
+		{"id":"8621725c241d2c63","fromNode":"31364581a6733c7c","fromSide":"right","toNode":"c1aa2f0848414a5c","toSide":"left"},
+		{"id":"f9f24dbe2daaa535","fromNode":"31364581a6733c7c","fromSide":"left","toNode":"35b46f7ce275a6e9","toSide":"left"},
+		{"id":"bd2d554a609d0bf9","fromNode":"35b46f7ce275a6e9","fromSide":"right","toNode":"111ec79d20562139","toSide":"left"},
+		{"id":"d77589af1733458a","fromNode":"111ec79d20562139","fromSide":"left","toNode":"4d3b57e04e697e83","toSide":"left"},
+		{"id":"1edae043acd67399","fromNode":"4d3b57e04e697e83","fromSide":"right","toNode":"691e42bd213df7b9","toSide":"left"},
+		{"id":"f460a640a5f21bbf","fromNode":"4d3b57e04e697e83","fromSide":"left","toNode":"88d87a3bd9a92c67","toSide":"left"},
+		{"id":"1306d39249d17005","fromNode":"35b46f7ce275a6e9","fromSide":"left","toNode":"37bd3e9d6d85f704","toSide":"left"},
+		{"id":"1f7fd323d26880fa","fromNode":"db4f88d3043a34a8","fromSide":"left","toNode":"116019ede34586a8","toSide":"left"}
+	]
+}

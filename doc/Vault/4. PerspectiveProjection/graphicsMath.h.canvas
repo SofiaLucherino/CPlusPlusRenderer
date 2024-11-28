@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"23761e533ed47ab0","type":"text","text":"\t#if !defined (GRAPHICS_MATH_H)\n...\n\n\t#define WIN32_GRAPHICSPRACTISE_H\n\t#endif","x":60,"y":-200,"width":360,"height":218,"color":"3"},
+		{"id":"ae3efa062e483cda","type":"text","text":"Унію для v2 ми будемо інтерпретувати:\n- або як структуру з двома змінними\n- або як массив з двума елементами","x":-61,"y":159,"width":359,"height":114,"color":"2"},
+		{"id":"790cd6fe912f8397","type":"text","text":"\tunion v2\n\t{\n\t\tstruct \n\t\t{\n\t\t\tf32 x, y;\n\t\t};\n\n\t\tf32 e[2];\n\t};","x":440,"y":-200,"width":289,"height":322,"color":"3"},
+		{"id":"babcbd7484aca602","type":"text","text":"Унію для v3 ми будемо інтерпретувати:\n- або як структуру з трьома змінними\n- або як двовимірний вектор (тоді третю координату ігноруємо)\n- або як массив з трьома елементами","x":-61,"y":273,"width":563,"height":146,"color":"2"},
+		{"id":"d60b9ece5edfc35e","type":"text","text":"\tunion v3 \n\t{\n\t\tstruct \n\t\t{\n\t\t\tf32 x, y, z;\n\t\t};\n\t\n\t\tstruct \n\t\t{\n\t\t\tv2 xy;\n\t\t\tf32 Ignored0;\n\t\t};\n\t\n\t\tstruct\n\t\t{\n\t\t\tf32 Ignored1;\n\t\t\tv2 yz;\n\t\t};\n\t\n\t\tf32 e[3];\n\t};","x":760,"y":58,"width":340,"height":580,"color":"3"},
+		{"id":"7c1334a3dff99224","type":"text","text":"Перевіряємо чи був цей файл вже підключенний","x":-240,"y":-121,"width":250,"height":60,"color":"4"},
+		{"id":"8a04a2a00f5d5b3f","type":"text","text":"На початку і в кінці","x":-560,"y":-121,"width":250,"height":60,"color":"6"},
+		{"id":"5bed3b23da6c9df9","type":"text","text":"В середині","x":-560,"y":-2,"width":250,"height":60,"color":"6"},
+		{"id":"2875d10456f4fc66","type":"text","text":"Створюємо унії для v2 i v3","x":-240,"y":-2,"width":258,"height":60,"color":"4"}
+	],
+	"edges":[
+		{"id":"4ecdfc3f61498586","fromNode":"7c1334a3dff99224","fromSide":"right","toNode":"23761e533ed47ab0","toSide":"left"},
+		{"id":"79696e403b104f40","fromNode":"8a04a2a00f5d5b3f","fromSide":"right","toNode":"7c1334a3dff99224","toSide":"left"},
+		{"id":"3cc380c1c50ffd2c","fromNode":"ae3efa062e483cda","fromSide":"right","toNode":"790cd6fe912f8397","toSide":"bottom"},
+		{"id":"a6ab843280d1558f","fromNode":"babcbd7484aca602","fromSide":"right","toNode":"d60b9ece5edfc35e","toSide":"left"},
+		{"id":"63e87079ff2e54b4","fromNode":"5bed3b23da6c9df9","fromSide":"right","toNode":"2875d10456f4fc66","toSide":"left"},
+		{"id":"4d9f30f462029678","fromNode":"2875d10456f4fc66","fromSide":"bottom","toNode":"ae3efa062e483cda","toSide":"left"},
+		{"id":"d75cd66c80d22f3e","fromNode":"2875d10456f4fc66","fromSide":"bottom","toNode":"babcbd7484aca602","toSide":"left"}
+	]
+}

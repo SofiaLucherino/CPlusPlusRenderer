@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"a24523022c2792e6","type":"text","text":"\tif ((Edge0RowX >= 0.0f || (isTopLeft0 && Edge0RowX == 0.0f)) &&\n\t\t(Edge1RowX >= 0.0f || (isTopLeft1 && Edge1RowX == 0.0f)) &&\n\t\t(Edge2RowX >= 0.0f || (isTopLeft2 && Edge2RowX == 0.0f)))\n","x":480,"y":-300,"width":683,"height":118,"color":"1"},
+		{"id":"ddffa83d371c0ab0","type":"text","text":"\tif(Edge0RowX >= 0.0f && Edge1RowX >= 0.0f && Edge2RowX >= 0.0f)\n","x":480,"y":-160,"width":613,"height":58,"color":"3"},
+		{"id":"f69eb60c6dff62a1","type":"text","text":"Видалимо старий умовний перехід","x":200,"y":-271,"width":250,"height":60,"color":"4"},
+		{"id":"befc6ddb77933f23","type":"text","text":"Створимо новий перехід","x":200,"y":-160,"width":250,"height":60,"color":"4"},
+		{"id":"e5bd38d707cf877b","type":"text","text":"Оптимізуємо умовний перехід у циклі кожного пікселю","x":-180,"y":-271,"width":288,"height":58,"color":"6"},
+		{"id":"94d5707bc2e677b8","x":-180,"y":-470,"width":359,"height":58,"color":"4","type":"text","text":"Змінимо значення результатту рівняння ребер під новий умовний перехід"},
+		{"id":"dd75e2de5174fb45","type":"text","text":"У win32_GraphicsPractise.cpp","x":-704,"y":-680,"width":274,"height":50,"color":"1"},
+		{"id":"10906688d4ce1ff6","type":"text","text":"У функціїї DrawTriangle","x":-430,"y":-593,"width":250,"height":60,"color":"6"},
+		{"id":"3aaa5e7b38ae0bf2","type":"text","text":"\ti32 Edge0RowY = i32((Edge0RowY64 + Sign(Edge0RowY64) * 128) / 256) - (isTopLeft0 ? 0 : -1);\n\ti32 Edge1RowY = i32((Edge1RowY64 + Sign(Edge1RowY64) * 128) / 256) - (isTopLeft1 ? 0 : -1);\n\ti32 Edge2RowY = i32((Edge2RowY64 + Sign(Edge2RowY64) * 128) / 256) - (isTopLeft2 ? 0 : -1);\n","x":220,"y":-500,"width":860,"height":118,"color":"3"}
+	],
+	"edges":[
+		{"id":"19e69f4abf5432cd","fromNode":"dd75e2de5174fb45","fromSide":"bottom","toNode":"10906688d4ce1ff6","toSide":"left"},
+		{"id":"dcca90e60cd29d2f","fromNode":"e5bd38d707cf877b","fromSide":"right","toNode":"f69eb60c6dff62a1","toSide":"left"},
+		{"id":"e1b34e54e57cb6d1","fromNode":"f69eb60c6dff62a1","fromSide":"left","toNode":"befc6ddb77933f23","toSide":"left"},
+		{"id":"b0e3c8fe8a051aec","fromNode":"befc6ddb77933f23","fromSide":"right","toNode":"ddffa83d371c0ab0","toSide":"left"},
+		{"id":"c7c7ae7c563525a1","fromNode":"f69eb60c6dff62a1","fromSide":"right","toNode":"a24523022c2792e6","toSide":"left"},
+		{"id":"6e453bbf87a016b9","fromNode":"94d5707bc2e677b8","fromSide":"right","toNode":"3aaa5e7b38ae0bf2","toSide":"left"},
+		{"id":"c1f6fcc5077b2e9f","fromNode":"10906688d4ce1ff6","fromSide":"bottom","toNode":"94d5707bc2e677b8","toSide":"left"},
+		{"id":"b5787ff3ef40712b","fromNode":"10906688d4ce1ff6","fromSide":"bottom","toNode":"e5bd38d707cf877b","toSide":"left"}
+	]
+}

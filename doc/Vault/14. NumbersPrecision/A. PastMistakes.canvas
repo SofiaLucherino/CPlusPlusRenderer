@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"7234ac1e7f0fd45a","type":"text","text":"Також ми хочемо рахувати пікселі не з лівого нижнього кутку а з центру пікселя, тому створимо змінну стартової позиції що буде зміщена на 0.5 по кожній координаті","x":-332,"y":-131,"width":390,"height":118,"color":"4"},
+		{"id":"1ca6d27d4474cb0f","type":"text","text":"У функції void DrawTriangle(clip_vertex Vertex0, clip_vertex Vertex1, clip_vertex Vertex2, texture Texture, sampler Sampler)\n","x":93,"y":-101,"width":499,"height":58,"color":"6"},
+		{"id":"68ac3ad6e9b6af00","type":"text","text":"Перед циклами обробки кожного пікселю","x":420,"y":-29,"width":247,"height":58,"color":"6"},
+		{"id":"e3cc2b38af8dfe39","type":"text","text":"\tv2 StartPos = V2(MinX, MinY) + V2(0.5f, 0.5f);\n\n\tf32 Edge0RowY = CrossProduct2d(StartPos - PointA, Edge0);\n\tf32 Edge1RowY = CrossProduct2d(StartPos - PointB, Edge1);\n\tf32 Edge2RowY = CrossProduct2d(StartPos - PointC, Edge2);","x":700,"y":-89,"width":564,"height":178,"color":"3"},
+		{"id":"802e3cf6b04178d7","type":"text","text":"1. Ми обробюємо пікселі від 0 до кількості пікселів в буффері не включно тому функція NdcToPixels має враховувати це, щоб не вийти за межі","x":-332,"y":-250,"width":461,"height":90,"color":"4"},
+		{"id":"c3d4c7fcf48dd70f","type":"text","text":"\tv2 NdcToPixels(v2 NdcPos)\n\t{\n\t\tv2 Result = {};\n\t\tResult = 0.5f * (NdcPos + V2(1.0f));\n\t\tResult = Result * V2(GlobalState.FrameBufferWidth - 1, GlobalState.FrameBufferHeight - 1);\n\treturn Result;\n\t}","x":361,"y":-369,"width":903,"height":238,"color":"3"},
+		{"id":"567d8fcb252dd135","type":"text","text":"2. Невірна формула для лівого ребра","x":-315,"y":89,"width":373,"height":51,"color":"4"},
+		{"id":"8466a65f09d2d845","type":"text","text":"Ми повинні перевіряти тільки чи Y ребра більше 0, а всі інші перевірки - зайві","x":-315,"y":160,"width":387,"height":74,"color":"2"},
+		{"id":"c4a9fff54f66daed","type":"text","text":"У функції void DrawTriangle(clip_vertex Vertex0, clip_vertex Vertex1, clip_vertex Vertex2, texture Texture, sampler Sampler)\n","x":144,"y":168,"width":499,"height":58,"color":"6"},
+		{"id":"bb844329f23a2493","x":269,"y":287,"width":250,"height":60,"color":"6","type":"text","text":"Після створення кожного ребра"},
+		{"id":"638927e1ab8bfc1e","x":541,"y":287,"width":272,"height":60,"color":"4","type":"text","text":"Тепер змінні IsTopLeft рахуються по іншій формулі"},
+		{"id":"2b62e5c7828c6fa7","type":"text","text":"\tb32 isTopLeft0 = (Edge0.y > 0 || Edge0.x > 0.0f && Edge0.y == 0.0f);\n\tb32 isTopLeft1 = (Edge1.y > 0 || Edge1.x > 0.0f && Edge1.y == 0.0f);\n\tb32 isTopLeft2 = (Edge2.y > 0 || Edge2.x > 0.0f && Edge2.y == 0.0f);\n","x":840,"y":258,"width":654,"height":118,"color":"3"}
+	],
+	"edges":[
+		{"id":"c6506c517fa29614","fromNode":"68ac3ad6e9b6af00","fromSide":"right","toNode":"e3cc2b38af8dfe39","toSide":"left"},
+		{"id":"4e284511ad90db31","fromNode":"1ca6d27d4474cb0f","fromSide":"bottom","toNode":"68ac3ad6e9b6af00","toSide":"left"},
+		{"id":"3a15adacea21c575","fromNode":"7234ac1e7f0fd45a","fromSide":"right","toNode":"1ca6d27d4474cb0f","toSide":"left"},
+		{"id":"f5f23449b2e1c9e6","fromNode":"802e3cf6b04178d7","fromSide":"right","toNode":"c3d4c7fcf48dd70f","toSide":"left"},
+		{"id":"73c0f6525ef7560d","fromNode":"8466a65f09d2d845","fromSide":"right","toNode":"c4a9fff54f66daed","toSide":"left"},
+		{"id":"f4ad1ffb7e8ad3fa","fromNode":"638927e1ab8bfc1e","fromSide":"right","toNode":"2b62e5c7828c6fa7","toSide":"left"},
+		{"id":"6a6d84a68fc49668","fromNode":"bb844329f23a2493","fromSide":"right","toNode":"638927e1ab8bfc1e","toSide":"left"},
+		{"id":"b25be0bc226588f3","fromNode":"567d8fcb252dd135","fromSide":"right","toNode":"8466a65f09d2d845","toSide":"right"},
+		{"id":"655137862696f043","fromNode":"c4a9fff54f66daed","fromSide":"bottom","toNode":"bb844329f23a2493","toSide":"top"}
+	]
+}

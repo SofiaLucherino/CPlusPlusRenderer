@@ -1,0 +1,40 @@
+{
+	"nodes":[
+		{"id":"f08efbe223b52605","type":"text","text":"Типи перетворень:\n- Масштабування\n- Поворот\n- Паралельне перенесення","x":-340,"y":-400,"width":288,"height":146,"color":"#9900ff"},
+		{"id":"a4b2d49e2d38f866","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/MatriceXVector.png","x":291,"y":-180,"width":427,"height":174,"color":"#c800ff"},
+		{"id":"3ff04c5a3a6cfef1","type":"text","text":"Множення матриці з вектором:\n- Результатом буде вектор енний член якого складається з суми добутків елементів енного рядка матриці на енний елемент вектора\n- Можна переписати як суму векторів-стовпців матриці кожен з яких множиться на відповідний йому елемент вектора","x":-340,"y":-180,"width":604,"height":174,"color":"#c800ff"},
+		{"id":"012a3995fe9ea90e","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/MatriceXMatrice.png","x":291,"y":20,"width":425,"height":174,"color":"#c800ff"},
+		{"id":"fd0fc518da3a2402","type":"text","text":"Множення матриці з матрицею\n- результатом буде матриця енний стовпець якої буде результатом множення першої матриці на вектор із енного стовпця другої","x":-340,"y":47,"width":585,"height":120,"color":"#c800ff"},
+		{"id":"19189539901d4019","type":"text","text":"[[TransformationMatriсes.canvas|TransformationMatrixes]]","x":-340,"y":-254,"width":250,"height":60,"color":"5"},
+		{"id":"387ce589730e9123","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/Scaling1.1.png","x":91,"y":194,"width":400,"height":130,"color":"#fb00ff"},
+		{"id":"429d595f274b1343","type":"text","text":"Однорідні координати:\n- замість трьвимірних векторівбудемо використовувати чотиривимірні\n- , відповідно четверта координата - w\n\t- коли w = 1 то ми можемо використати матрицю 4х4 щоб закодувати паралельне перенесення\n\t- коли w = 0 використовуючи ту саму матрицю паралельне перенесення не буде відбуватися\n\t- таким чином ми можемо відрізняти координати обьєктів, що можуть рухатися від векторів-напрямків","x":-340,"y":353,"width":897,"height":245,"color":"#ff00c8"},
+		{"id":"efe2a28c7af1b248","type":"text","text":"| Xlocal | Ylocal | Zlocal | offsetVector |\n|---|---|---|---|\n|1|0|0|0|\n|0|cos(α) \\* Ylocal|sin(α) \\* Zlocal|0|\n|0|sin(α) \\* Ylocal|cos(α) \\* Zlocal|0|\n|0|0|0|1|","x":-998,"y":223,"width":484,"height":190,"color":"#ff0066"},
+		{"id":"7cc8b3091f96659a","type":"text","text":"Матриці повороту:\nНавколо осі X (від Y до Z):\n{  \nYrotated = cos(α) \\* Yworld - sin(α) \\* Zworld\nZrotated = sin(α) \\* Yworld + cos(α) \\* Zworld\n","x":-944,"y":28,"width":375,"height":147,"color":"#ff0066"},
+		{"id":"2e433876f98eb70f","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/Rotation1-3.png","x":-1060,"y":438,"width":546,"height":160,"color":"#ff0066"},
+		{"id":"6bdbaef19b1083b3","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/Scaling2.png","x":620,"y":495,"width":400,"height":103,"color":"#ff00c8"},
+		{"id":"49d5e91efd3eb355","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/Translation.png","x":621,"y":280,"width":399,"height":176,"color":"#ff00c8"},
+		{"id":"28e8b7f4431a3107","type":"text","text":"Порядок перетворень:\n- Так як матриця обертання обертає об'єкт навколо початку координат\n- , а матриця паралельного переносу відносно нього ж переносить об'єкт, то:\n\t- останніми діями над об'ктом буде його паралельний переніс\n\t- перед цим ми будемо обертати об'єкт\n\t- а в самому початку маштабуємо\n\nОтже, маємо такий порядок використання матриць:\n- Масштабування => Поворот => Паралельне перенесення","x":-340,"y":620,"width":662,"height":306,"color":"#ff00a2"},
+		{"id":"c49c326cd390c1dd","type":"file","file":"!Personal/Now/CG/Labs/CPlusPlus3DRender/8. TransformationMatriсes/PNG/Scaling1.png","x":-340,"y":209,"width":399,"height":115,"color":"#fb00ff"},
+		{"id":"eac483f34eb3d49a","type":"text","text":"Кожне перетворення можна викликати окремою функцією,\nпроте набагато ефективніше буде використовувати матриці які мають в собі одразу декілька перетворень","x":-15,"y":-371,"width":506,"height":88,"color":"#9900ff"},
+		{"id":"8cfc8ae8ab89b660","type":"text","text":"Матриці:\n- це лінійні відображення між двома просторами","x":36,"y":-265,"width":455,"height":80,"color":"#9900ff"},
+		{"id":"498c547e3e091e01","type":"text","text":"Матрична пам'ять:\n- Як і з буфферами пікселів будемо кодувати кожну матрицю одномірним массивом\n- Проте маємо одразу визначити чи будемо зчитувати матрицю з массиву по стовпчикам (стовпчик1, стовпчик2, ...), чи по рядкам (рядок1, рядок2, ...)\n- Насправді відповідь залежить від API який ми будемо використовувати, проте:\n\t- якщо API зручніше множити матрицю і вектор не в тому порядку що ми очікуємо то для корректного результату нам просто потрібно транспонувати матрицю і вектора\n\n У нашому варіанті будемо використовувати множення матриць на вектори (а не навпаки)\n - , тому будемо кодувати массив матриць по стовпцях (стовпчик1, стовпчик2, ...)","x":760,"y":-257,"width":762,"height":328,"color":"#c800ff"}
+	],
+	"edges":[
+		{"id":"2086260fda1f98a1","fromNode":"3ff04c5a3a6cfef1","fromSide":"right","toNode":"a4b2d49e2d38f866","toSide":"left"},
+		{"id":"1054c099c702783a","fromNode":"fd0fc518da3a2402","fromSide":"right","toNode":"012a3995fe9ea90e","toSide":"left"},
+		{"id":"104d9d5e4f07968a","fromNode":"429d595f274b1343","fromSide":"right","toNode":"49d5e91efd3eb355","toSide":"left"},
+		{"id":"7b35c9d81c3b6693","fromNode":"429d595f274b1343","fromSide":"right","toNode":"6bdbaef19b1083b3","toSide":"left"},
+		{"id":"3e1a69d49ed46683","fromNode":"7cc8b3091f96659a","fromSide":"bottom","toNode":"efe2a28c7af1b248","toSide":"top"},
+		{"id":"f0210fb0b7ec7408","fromNode":"f08efbe223b52605","fromSide":"left","toNode":"19189539901d4019","toSide":"left"},
+		{"id":"f4729320dc23ad53","fromNode":"19189539901d4019","fromSide":"left","toNode":"7cc8b3091f96659a","toSide":"top"},
+		{"id":"ea02437c84b1dd33","fromNode":"429d595f274b1343","fromSide":"left","toNode":"7cc8b3091f96659a","toSide":"right"},
+		{"id":"0997589c07969fbb","fromNode":"c49c326cd390c1dd","fromSide":"left","toNode":"429d595f274b1343","toSide":"left"},
+		{"id":"4e7827c74becacaf","fromNode":"a4b2d49e2d38f866","fromSide":"right","toNode":"498c547e3e091e01","toSide":"left"},
+		{"id":"a1eefdc193922daf","fromNode":"efe2a28c7af1b248","fromSide":"right","toNode":"2e433876f98eb70f","toSide":"right"},
+		{"id":"d1007e8515241e12","fromNode":"2e433876f98eb70f","fromSide":"bottom","toNode":"28e8b7f4431a3107","toSide":"left"},
+		{"id":"1c9a58e4786f1564","fromNode":"429d595f274b1343","fromSide":"left","toNode":"28e8b7f4431a3107","toSide":"left"},
+		{"id":"6c523179f00cab00","fromNode":"6bdbaef19b1083b3","fromSide":"bottom","toNode":"28e8b7f4431a3107","toSide":"right"},
+		{"id":"5ba8be50c94f41ad","fromNode":"f08efbe223b52605","fromSide":"right","toNode":"eac483f34eb3d49a","toSide":"left"},
+		{"id":"49c44e4d38531bd4","fromNode":"eac483f34eb3d49a","fromSide":"right","toNode":"8cfc8ae8ab89b660","toSide":"right"}
+	]
+}

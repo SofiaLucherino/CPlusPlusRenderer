@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"e7e3a9be3bcdb23f","type":"text","text":"У graphicsMath.cpp","x":-420,"y":-300,"width":250,"height":60,"color":"1"},
+		{"id":"1112d53577feca48","type":"text","text":"Пишемо функцію ініціалізацію чотиривимірного вектору чотирма значеннями","x":-233,"y":-200,"width":417,"height":58,"color":"4"},
+		{"id":"573763597549da07","type":"text","text":"\tv4 V4(f32 X, f32 Y, f32 Z, f32 W) \n\t{\n\t\tv4 Result = {};\n\t\tResult.x = X;\n\t\tResult.y = Y;\n\t\tResult.z = Z;\n\t\tResult.w = W;\n\t\treturn Result;\n\t}","x":220,"y":-434,"width":367,"height":292,"color":"3"},
+		{"id":"c648e9034cc93a24","type":"text","text":"\tv3 operator/(v3 A, f32 B)\n\t{\n\t\tv3 Result = {};\n\t\tResult.x = A.x / B;\n\t\tResult.y = A.y / B;\n\t\tResult.z = A.z / B;\n\t\treturn Result;\n\t}","x":220,"y":-120,"width":318,"height":268,"color":"3"},
+		{"id":"4844668f5ad91c3a","type":"text","text":"Пишемо функцію для нормалізації трьовимірного вектора (його напрвлення те саме, а довжина дорівнює 1)","x":-860,"y":-200,"width":494,"height":58,"color":"4"},
+		{"id":"020225fffbdb277d","type":"text","text":"Пишемо оператор ділення трьовимірного вектору на число","x":-233,"y":-120,"width":306,"height":58,"color":"4"},
+		{"id":"41ac71522c101b95","type":"text","text":"\tv3 Normalize(v3 A) \n\t{\n\t\tf32 Lenght = sqrt(A.x * A.x + A.y * A.y + A.z * A.z);\n\t\tv3 Result = A / Lenght;\n\t\treturn Result;\n\t}","x":-911,"y":-91,"width":597,"height":208,"color":"3"}
+	],
+	"edges":[
+		{"id":"c5767979a36100c8","fromNode":"e7e3a9be3bcdb23f","fromSide":"bottom","toNode":"1112d53577feca48","toSide":"left"},
+		{"id":"288e2fea08bcaf83","fromNode":"1112d53577feca48","fromSide":"top","toNode":"573763597549da07","toSide":"left"},
+		{"id":"08dc6e4f4577f033","fromNode":"e7e3a9be3bcdb23f","fromSide":"bottom","toNode":"4844668f5ad91c3a","toSide":"right"},
+		{"id":"45099b3107d4d327","fromNode":"e7e3a9be3bcdb23f","fromSide":"bottom","toNode":"020225fffbdb277d","toSide":"left"},
+		{"id":"0dda2f44be56c3f0","fromNode":"020225fffbdb277d","fromSide":"right","toNode":"c648e9034cc93a24","toSide":"left"},
+		{"id":"2dad2bacb3f48203","fromNode":"4844668f5ad91c3a","fromSide":"bottom","toNode":"41ac71522c101b95","toSide":"top"}
+	]
+}
